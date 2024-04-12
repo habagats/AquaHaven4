@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaHaven Online Shopping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Include CSS stylesheets here -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Example CSS for product cards */
+        
+        .product-card {
+            border: transparent; 
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 300px;
+            background-color: #0E566a;
+            
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-card button {
+            margin-top: 5px;
+            padding: 5px 10px;
+            background-color: #258694;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .product-card button:hover {
+            background-color: #0056b3;
+        }
+        .quantity-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .quantity-btn {
+            padding: 5px 10px;
+            background-color: #258694;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .quantity-input {
+            width: 50px;
+            padding: 5px;
+            margin: 0 5px;
+            text-align: center;
+        }
+        .product-list{
+            align-items: center;
+            margin-left: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            
+        }
+        .product-card{
+            margin-left: 20px;
+        }
+        .product-card > img {
+            height: 200px;
+            width: auto;
+        }
+        
+        .PBM{
+            width: 200px;
+            height: 35px;
+            font-size: 17px;
+            font-weight: bolder;
+        }
+
+        .BLG {font-size: 17px;
+            width:200px ;
+        height: 34px;
+        font-weight: bolder;}
+        
+        .GR {font-size: 17px;
+            width:200px ;
+        height: 34px;
+        font-weight: bolder;}
+
+        .MF {font-size: 17px;
+            width:200px ;
+        height: 34px;
+        font-weight: bolder;}
+        img:hover{
+    transform: scale(1.2);
+    }
+
+    img{
+        transition: transform 0.3s ease;
+    }
+/*p{
+    height: 90px;
+    width: 220px;
+    padding-top: 5px;
+    padding-bottom: 5px;  
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border: 1px solid black; 
+}
+p::-webkit-scrollbar {
+display: none;  Hide the scrollbar for WebKit (Chrome, Safari)
+}*/
+    .userIcon{
+        height: 25px;
+        width: 25px;
+        
+        margin-top: 15px;
+    }
+    .cartIcon{
+        height: 25px;
+        width: 25px;
+        
+        margin-top: 15px;
+        cursor: pointer;
+
+    }
+    .isda{
+        margin-left: 125px;
+    } 
+    .quantity-input{
+        border: transparent;
+    }    
+    body {
+            background-size: cover; 
+            background-repeat: repeat; 
+            background-position: center; 
+            height: 100vh; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #072533;
+    }
+
+    #navbar{
+        background-color: #0E566A;
+        z-index: 1000;
+    }
+
+    #dropdownMenuButton2{
+        background-color: #258694;
+    }
+
+    .buy{
+        display: flex;
+    }
+
+    .buy > button {
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    .class{
+        background-color: black;
+        height: 100px;
+        width: 100px;
+    }
+    
+    .popup .overlay{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+        display: none;
+    }
+    .popup .content{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background-color: #0E566A;
+        width: 450px;
+        height: 220px;
+        z-index: 2;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .popup .close-btn{
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 30px;
+        height: 30px;
+        background-color: #222;
+        color: #fff;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 22px;
+
+        border-radius: 50%;
+    }
+    .popup.active .overlay{
+        display: block;
+    }
+    .popup.active .content{
+        transition: all 300ms ease-in-out;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    .search {
+        
+        width: 280px;
+        color: white;
+        
+        
+    }
+    
+   
+    
+
+ h3{
+    color: #fff;
+ }
+ span{
+    color: #fff;
+ }
+ #fishda{
+    margin-left: 33px;
+ }
+#food{
+    margin-left: 33px;
+}
+#accessories{
+    margin-left: 33px;
+}
+.mag{
+    
+   margin-top: 25px;
+   cursor: pointer;
+  
+   
+}
+
+
+.mag:hover{
+    transition: all 300ms ease-in-out;
+    transform: scale(1.3);
+}
+.empty{
+    margin-top: 40px;
+    color: #b2beb5;
+    font-size: 20px;
+}
+    </style>
+</head>
+<body>
+<script>
+    function togglePopup(){
+        document.getElementById('popup-1').classList.toggle("active");
+    }
+</script>
+    <main>
+        <div class="popup" id="popup-1">
+            <div class="overlay"></div>
+                <div class="content">
+                    <div class="close-btn" onclick="togglePopup()">&times;</div>
+                    <h1 style="color: #fff;">Cart</h1>
+                    <p class="empty" style="color: #b2beb5;">Cart is empty!</p>
+                </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top py-4" id="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">AquaHaven</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" style="color: #fff;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Category
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#fishda">Fish</a></li>
+                                <li><a class="dropdown-item" href="#food">Fish Food</a></li>
+                                <li><a class="dropdown-item" href="#accessories">Accessories</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: #fff;" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: #fff;" href="about.html">About</a>
+                        </li>
+                    </div>
+                    <div class="navbar-nav flex-grow-1">
+                        <form class="d-flex">
+                            <input class="search form-control me-2 border-0 bg-transparent border-bottom" style="color: #fff;"type="search" placeholder="Search" aria-label="Search">
+                            <i class="mag fa-solid fa-magnifying-glass fa-lg" style="color: #9dd4d1;"></i>
+                        </form>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="cartIcon fa-solid fa-cart-shopping fa-lg" style="color: #9dd4d1;" onclick="togglePopup()"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" class="nav-link">
+                                <i class="userIcon fa-solid fa-user fa-lg" style="color: #9dd4d1;"></i>
+                            </a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+
+        <h3 id="fishda" class="isda p-4">Fish</h3>
+        <div class="product-list">
+            <div class="product-card">
+                <img src="shop/fish/blueguppy.png" class = "gapi" alt="Product 1">
+                <h3 class="BLG">Blue Lace Guppy</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="para p-3">The Metal Blue Lace Guppy (Poecilia reticulata) is a lovely guppy variety that is now well established in the aquarium world.</p>
+                            </li>
+    
+                        </ul>
+    
+                    
+                </div>
+                
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class=" quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class=" quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="shop/fish/GoldlinedRabbitfish.png" alt="Product 2">
+                <h3 class="GR">Goldlined Rabbitfish</h3>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3">The Golden Rabbitfish is found in coral-dense and seagrass areas of reefs and lagoons. Juveniles are commonly observed in small schools among corals or seagrass beds. Adults are most commonly observed in pairs around Acropora corals.</p>
+    
+                            </li>
+    
+                        </ul>
+    
+                    
+                </div>
+                <span>$60.00</span>
+                <div class="quantity-container">
+                    <button class=" quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class=" quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="shop/fish/angelfish.png" alt="Product 2">
+                <h3>Angel Fish</h3>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3">Pterophyllum is a small genus of freshwater fish from the family Cichlidae known to most aquarists as angelfish.</p>
+    
+                            </li>
+    
+                        </ul>
+    
+                    
+                </div>
+                <span>$60.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="shop/fish/bluediscus.png" alt="Product 2">
+                <h3>Blue Discus</h3>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3">The Blue Diamond Discus is a very flat fish. Its round body looks just like a silver dollar pancake! Their compressed appearance is what makes them so unique. </p>
+    
+                            </li>
+    
+                        </ul>
+    
+                    
+                </div>
+                <span>$60.00</span>
+                <div class="quantity-container">
+                    <button class="quant quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quant quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="shop/fish/clownfish.png" alt="Product 2">
+                <h3>Clown Fish</h3>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3">Clownfish or anemonefish are fishes from the subfamily Amphiprioninae in the family Pomacentridae. Thirty species of clownfish are recognized: one in the genus Premnas, while the remaining are in the genus Amphiprion.</p>
+    
+                            </li>
+    
+                        </ul>
+    
+                    
+                </div>
+                <span>$60.00</span>
+                <div class="quantity-container">
+                    <button class="quant quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quant quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="shop/fish/mandarinfish.png" alt="Product 2">
+                <h3 class="MF">Mandarin Fish</h3>
+
+               <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3">Mandarin Fish, also known as Synchiropus splendidus, is a captivating and vibrant marine creature that has mesmerized divers and aquarium enthusiasts alike.</p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+
+                <span>$60.00</span>
+
+                <div class="quantity-container">
+                    <button class="quant quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quant quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/fish/oranda.png" alt="Product 2">
+                <h3>Oranda</h3>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3">An oranda is a breed of goldfish characterized by a prominent bubble-like "hood" on the head. The headgrowth or hood may be a prominent growth on the top of the head or may encase the entire face except the mouth.</p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+
+                <span>$60.00</span>
+
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/fish/yellowtang.png" alt="Product 2">
+                <h3>Yellow Tang</h3>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3">The yellow tang, also known as the lemon sailfin, yellow sailfin tang or somber surgeonfish, is a species of marine ray-finned fish belonging to the family Acanthuridae which includes the surgeonfishes, unicornfishes and tangs. It is one of the most popular marine aquarium fish. </p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+
+                <span>$60.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="shop/fish/betafish.png" alt="Product 2">
+                <h3>Betta Fish</h3>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3">The Siamese fighting fish (Betta splendens), commonly known as the betta,is a freshwater fish native to Southeast Asia, It is one of 73 species of the genus Betta, but the only one eponymously called "betta", owing to its global popularity as a pet </p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$60.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" id="PBM">
+                <img src="shop/fish/platinum balloon molly.png" alt="Product 2">
+                <h3 class="PBM">Platinum Balloon Molly</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3"> A Balloon Molly is a fish that's related to the Poecilia genus, native to fresh and brackish waters from North Carolina to Texas. </p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$60.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+            <!-- Repeat product cards for other products -->
+        </div>
+        <h3 id="food" class="isda p-4">Fish Food</h3>
+        <div class="product-list ">
+            <div class="product-card">
+                <img src="shop/fish food/bbs.png" alt="Product 1">
+                <h3 class="BLG">Baby Brine Shrimp</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3"> Baby brine shrimp (nauplii of Artemia salina)
+                                     are widely used in the aquarium hobby as food during 
+                                     the first stages of many delicate fishes and for invertebrates.
+                                      To this date, there has been little or no innovation in the use of Baby Brine
+                                       Shrimp in the hobby. </p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/fish food/bloodworms.png" alt="Product 1">
+                <h3 class="BLG">Blood Worms</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3">Blood worm is a natural part of a fish's diet and comes in different sizes to suit. They contain a high amount of iron and protein but do lack other essential minerals, amino acids, and vitamins so they should be used alongside their regular diet of flake or pellets.</p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/fish food/daphnia.png" alt="Product 1">
+                <h3 class="BLG">Daphnia</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3"> Daphnia are a perfect food for almost any Nano fish. When daphnia are born, the babies are about the size of a spec of dust. They are extremely small which makes them great for fry as well. </p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/fish food/OF betta.png" alt="Product 1">
+                <h3 class="BLG">Ocean Free Betta</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3"> Specially formulated for all Betta types, BT-G1 is a breakthrough in Betta nutrition that provides a complete nutritional diet that promotes healthy growth </p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/fish food/OF goldfish.png" alt="Product 1">
+                <h3 class="BLG">Ocean Free Goldfish</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3"> Ocean Free Super Goldfish 120g Natural Maintenance Food for All Goldfish
+
+                                    Made with wholesome vegetable fibre for good dietary requirements.
+                                    High content of wheat germ formula for easy digestive purposes.
+                                    Total balance formula for good body shape development
+                                    Enhance goldfish health and activeness.
+                                    Aids digestion even at low temperatures.
+                                    Floating type, will not pollute water.
+                                    Special immune substance added. </p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/fish food/OF guppy.png" alt="Product 1">
+                <h3 class="BLG">Ocean Free Guppy</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3"> OCEAN FREE Super guppy 
+
+                                    Special complete food for exotic guppies.
+                                    Spezielles komplettfutter for exotische guppies.
+                                    Aliment complete et special pour guppys exotiques.
+                                    Special completed food for exotic guppies.
+                                    Enhance fish shape and fin development
+                                    Special immune substance added
+                                    intensify natural color
+                                    will not pollute water
+                                    Share</p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/fish food/tubifex.png" alt="Product 1">
+                <h3 class="BLG">Tubifex</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3"> Tubifex worms are often used as a live food for fish, 
+                                    especially tropical fish and certain other freshwater species.
+                                     They have been a popular food for the aquarium trade almost since its inception,
+                                      and gathering them from open sewers for this purpose was quite common until recently.</p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+        </div>
+        <h3 id="accessories" class="isda p-4">Accessories</h3>
+        <div class="product-list">
+            <div class="product-card">
+                <img src="shop/accessories/betta tank.png" alt="Product 1">
+                <h3 class="BLG">Betta Tank</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3">
+                                    A Betta tank is a captivating aquatic environment designed specifically for the beautiful and vibrant Betta fish, also known as Siamese Fighting Fish. These tanks are typically smaller in size, ranging from 2 to 10 gallons, providing ample space for a single Betta to thrive.</p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/accessories/fish bowl.png" alt="Product 1">
+                <h3 class="BLG">Fish Bowl</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p class="p-3"> 
+                                    Introducing the perfect accent to elevate any space – our exquisite fish bowl! Crafted with precision and elegance, our fish bowl combines timeless design with modern functionality, making it an ideal choice for both novice and experienced fish enthusiasts alike.</p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/accessories/fish tank.png" alt="Product 1">
+                <h3 class="BLG">Fish Tank</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p>
+                                    Immerse yourself in the mesmerizing world of aquatic wonders with our top-of-the-line fish tank! Crafted with precision engineering and innovative design, our fish tank brings the beauty of underwater life right into your home.</p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/accessories/hornwort.png" alt="Product 1">
+                <h3 class="BLG">Hornwort</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p>
+                                    Hornwort, also known as Ceratophyllum, is a versatile and popular aquatic plant cherished by hobbyists for its ease of care and numerous benefits in the aquarium.</p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/accessories/moneywort.png" alt="Product 1">
+                <h3 class="BLG">Moneywort </h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p> Moneywort, scientifically known as Bacopa monnieri, is a delightful and versatile aquatic plant prized by aquarists for its aesthetic appeal and ease of care. </p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="shop/accessories/pebbles.png" alt="Product 1">
+                <h3 class="BLG">Aquarium Pebbles</h3>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                            Description
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p> Aquarium pebbles are a versatile and attractive substrate option for aquarists looking to enhance the aesthetics of their underwater landscape</p>
+    
+                            </li>
+    
+                        </ul>
+                </div>
+                <span>$50.00</span>
+                <div class="quantity-container">
+                    <button class="quantity-btn minus-btn">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus-btn">+</button>
+                </div>
+                <div class="buy">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+                <div class="product-card">
+                    <img src="shop/accessories/sand.png" alt="Product 1">
+                    <h3 class="BLG">Aquarium Sand</h3>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                         aria-expanded="false">
+                                Description
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <p> 
+                                        Aquarium sand is a popular substrate choice among aquarists for its natural appearance, versatility, and compatibility with a wide range of aquatic setups. </p>
+        
+                                </li>
+        
+                            </ul>
+                    </div>
+                    <span>$50.00</span>
+                    <div class="quantity-container">
+                        <button class="quantity-btn minus-btn">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn plus-btn">+</button>
+                    </div>
+                    <div class="buy">
+                        <button>Add to Cart</button>
+                        <button>Buy Now</button>
+                    </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Include footer content here (copyright, links, etc.) -->
+        <p>&copy; 2024 AquaHaven. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
